@@ -3,8 +3,9 @@ body {
 }
 
 h1 {
-  color: green;
+  color: purple;
   text-align: center;
+  font-family: "Arial-Rounded MT Bold"
 }
 
 p {
