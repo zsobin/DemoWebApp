@@ -11,3 +11,7 @@ p {
   font-family: "Helvetica";
   font-size: 34px;
 }
+
+button {
+	color: orange;
+}
