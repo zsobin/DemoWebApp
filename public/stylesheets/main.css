@@ -16,3 +16,26 @@ p {
 button {
 	color: orange;
 }
+
+.weather-wrapper {
+  padding: 0 20px;
+}
+
+.temp {
+  margin-bottom: 0;
+}
+
+.summary {
+  margin-top: 0;
+}
+
+.summary-item > * {
+  vertical-align: middle;
+}
+
+.search-wrapper {
+  padding: 20px 0;
+}
+
+.error-message {
+  color: red;
