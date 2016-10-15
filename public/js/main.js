@@ -58,14 +58,14 @@ function searchImages() {
 function getImages(searchQuery) {
   var url = 'https://pixabay.com/api/?'; // url for the Photos API
   var params = {
-    key: 3530249-9829529561f14c690a9517dc2, 
+    key: '3530249-9829529561f14c690a9517dc2', 
     image_type: photo;
   };
   if (searchQuery) {
     params.q = searchQuery;
   } else {
     params.id = yellow+flowers // defaults to id for Yellow Flowers,
-    
+
   $.ajax(url + $.param(params), {
     success: function (data) {
       var countryName = getCountryName(data.sys.country);
