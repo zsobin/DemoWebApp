@@ -32,6 +32,10 @@ border-radius: 3px;
 border: none;
 }
 
+.image-wrapper{
+  padding: 200px;
+  background: url('https://pixabay.com/get/e833b80921f6003ed95c4518b74f4395e375e6dc04b0154693f5c47ea7e9b6_640.jpg')
+}
 
 .weather-wrapper {
   padding: 50px;

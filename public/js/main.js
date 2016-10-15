@@ -7,6 +7,10 @@ $(document).ready(function() {
   getWeather();
 });
 
+$(document).ready(function() {
+  getImages();
+});
+
 function searchWeather() {
   var searchQuery = $('.search').val(); // grab value from search input
   getWeather(searchQuery);
@@ -51,7 +55,7 @@ function parseSummary(data) {
 // this section is for my image API 
 
 function searchImages() {
-  var searchQuery = $('.search').val(); // grab value from search input
+  var searchQuery = $('.search-images').val(); // grab value from search input
   getImages(searchQuery);
 }
 
@@ -59,35 +63,32 @@ function getImages(searchQuery) {
   var url = 'https://pixabay.com/api/?'; // url for the Photos API
   var params = {
     key: '3530249-9829529561f14c690a9517dc2', 
-    image_type: photo;
   };
   if (searchQuery) {
     params.q = searchQuery;
   } else {
-    params.id = yellow+flowers // defaults to id for Yellow Flowers,
-
+    params.id = 1725869 // defaults to Yellow Flowers,
+  }
   $.ajax(url + $.param(params), {
     success: function (data) {
-      var countryName = getCountryName(data.sys.country);
-      $('.city').text(`${data.name}, ${countryName}`);
-      $('.temp').text(`${data.main.temp} °F`);
-      $('.summary').html(parseSummary(data));
+      var imageurl = data.hits[0].webformatURL      
+      $('#Image').attr('src',imageurl)
     },
     error: function (error) {
       $('.error-message').text('An error occurred :D :D');
-    }
-  });
+    }});
 }
 
-function parseSummary(data) {
-  if (data.weather) {
-    var weatherItems = data.weather.map(function(weatherItem) {
+function parseSummary(Imagedata) {
+  if (Imagedata.images) {
+    var imageItems = Imagedata.images.map(function(imageItem) {
       var description = weatherItem.description;
-      // the api gives you an icon file name, all icon pngs are available at http://openweathermap.org/img/w
       var iconSrc = 'http://openweathermap.org/img/w/' + weatherItem.icon + '.png';
       return `<div class="summary-item"><span>${description}</span><img src="${iconSrc}"/></div>`;
     });
-    return weatherItems.join('');
+    return imageItems.join('');
   }
 }
+
+
 
