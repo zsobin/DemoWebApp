@@ -31,7 +31,7 @@ function getWeather(searchQuery) {
       $('.summary').html(parseSummary(data));
     },
     error: function (error) {
-      $('.error-message').text('An error occurred :(');
+      $('.error-message').text('An error occurred :D :D');
     }
   });
 }
